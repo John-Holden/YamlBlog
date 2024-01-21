@@ -1,7 +1,7 @@
 title: Introduction to YAML2
 description: A brief introduction into how to parse yaml etc
 body:
-  - text: |
+  - text: | # Input text in markdown, have it rendered as HTML using github.com/gomarkdown/markdown pkg
      ## A Subtitle title
      YAML Ain't Markup Language (YAML) is a human-readable data serialization language.
      - ![GitHub Logo](https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png)"
