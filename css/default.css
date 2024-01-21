@@ -1,0 +1,54 @@
+/* styles.css */
+
+/* Reset some default browser styles */
+body, h1, p {
+    margin: 10;
+    padding: 10;
+}
+
+/* Set a background color for the entire page */
+body {
+    background-color: #d5dbed;
+    font-family: Arial, sans-serif;
+}
+
+/* Style the header with a background color, text color, and padding */
+header {
+    background-color: #333;
+    color: #ff7070;
+    padding: 20px;
+}
+
+/* Style the main content container */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Style headings and paragraphs */
+h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+
+/* Style links */
+a {
+    color: rgb(97, 122, 149); /* Link color (blue) */
+    text-decoration: none; /* Remove underlines by default */
+    transition: color 0.3s; /* Smooth color transition on hover */
+    font-weight: bold;
+}
+
+/* Style links on hover */
+a:hover {
+    color: rgb(33, 50, 68); /* Darker blue color on hover */
+    text-decoration: underline; /* Underline on hover */
+}

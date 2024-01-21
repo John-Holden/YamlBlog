@@ -1,0 +1,36 @@
+title: MyTests
+description: A brief introduction into how to parse yaml etc
+body:
+  - date: "2023-03-01"
+  - text : |
+      ## This is a second sub-title
+      
+      I am written over several lines aklaklcalkklackl
+      alkckakalc akakal alkacklalka
+      
+      ---
+      
+      aklalckkak ajkackljak aklasdlkalpo akjkasdklasoa apoal;klaoa
+  - text: |
+      - here
+      - here1
+      - here3
+  - code:
+      lang: python 
+      input: |
+        # This is python
+        print('hello world')
+        for i in range(10):
+          print(i)
+  - code: 
+      lang: go
+      input: |
+        // This is GO
+        fmt.Println("I am go code")
+        var head map[string]interface{}
+        head = make(map[string]string)
+        for i, v := range(10):
+          head[i] = v
+  - text : |
+      ## Subtitle
+  
