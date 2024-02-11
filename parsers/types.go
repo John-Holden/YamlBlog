@@ -1,4 +1,4 @@
-package yamlParser
+package Parsers
 
 import (
 	"fmt"

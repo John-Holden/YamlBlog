@@ -1,4 +1,6 @@
-package yamlParser
+//Generates HTML templates
+
+package Parsers
 
 import (
 	"fmt"

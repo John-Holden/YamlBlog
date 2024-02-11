@@ -1,4 +1,4 @@
-package yamlParser
+package Parsers
 
 import (
 	"errors"
@@ -34,7 +34,7 @@ func markdownLink(text string, url string) string {
 // Finds and returns list of all posts
 // & displays as html-formatted string
 func ListPosts(dir string, host string) string {
-	fmt.Println("[i] Listing Posts")
+	fmt.Println("[i] Listing Posts...")
 	filenames := FindDirFiles(dir, "yaml")
 	post_links := GetPostLinks(dir, filenames, host)
 	return markdownList(post_links)
@@ -160,7 +160,7 @@ func GetPostLinks(dir string, filenames []string, host string) []string {
 		if err != nil {
 			return nil
 		}
-		postLinks = append(postLinks, markdownLink(title, host+"/post/"+path))
+		postLinks = append(postLinks, markdownLink(title, host+"/"+dir+"/"+path))
 	}
 	return postLinks
 }
