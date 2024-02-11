@@ -1,4 +1,4 @@
-package blogserver
+package YamlBlog
 
 import (
 	"fmt"
@@ -14,6 +14,7 @@ import (
 
 // Global constants
 const (
+	cssDir         = "css/default"
 	contentDir     = "pages"
 	staticDir      = "/static/"
 	defaultFavIcon = "static/favicon.ico"
@@ -94,7 +95,7 @@ func renderPost(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, html_doc)
 }
 
-func startBlog(w http.ResponseWriter, r *http.Request) {
+func setRoutes(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("[i] Starting WebServer...")
 	router := mux.NewRouter()
 	router.HandleFunc("/", corsMiddleware(RenderPostList))
@@ -104,9 +105,16 @@ func startBlog(w http.ResponseWriter, r *http.Request) {
 	router.ServeHTTP(w, r)
 }
 
+func start(
+	port int,
+	content_dir string,
+	css_dir string,
+	static_dir string,
+	flavicon string)
+
 func main() {
 	fmt.Println("[i] Starting Local WebServer...")
-	funcframework.RegisterHTTPFunction("/", startBlog)
+	funcframework.RegisterHTTPFunction("/", setRoutes)
 	// Use the PORT environment variable, or default to 8080
 	port := "8080"
 	if envPort := os.Getenv("PORT"); envPort != "" {
