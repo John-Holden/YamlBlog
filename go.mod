@@ -1,4 +1,4 @@
-module github.com/John-Holden/yamBlog
+module github.com/John-Holden/YamlBlog
 
 go 1.21.4
 

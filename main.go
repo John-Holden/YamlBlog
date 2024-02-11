@@ -8,7 +8,7 @@ import (
 	"os"
 
 	"github.com/GoogleCloudPlatform/functions-framework-go/funcframework"
-	yamlP "github.com/John-Holden/yamBlog/parsers"
+	yamlP "github.com/John-Holden/YamlBlog/parsers"
 	"github.com/gorilla/mux"
 )
 
