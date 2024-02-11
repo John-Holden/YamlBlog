@@ -1,9 +1,9 @@
-title: Multi Code Snippets
+title: Code snippets
 description: A brief introduction into how to parse yaml etc
 body:
   - date: "2023-03-01"
   - text : |
-      ## This is a second sub-title
+      ## Vestibulum aliquet felis
       
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum aliquet felis at ipsum viverra,
       vel condimentum velit vehicula. Quisque non felis justo. Sed vitae mi id eros congue interdum. 
@@ -12,12 +12,12 @@ body:
       Morbi vestibulum felis eget ligula interdum, a sodales eros volutpat. Integer feugiat sagittis quam, id laoreet purus hendrerit sed.      
       ---
       
-      Praesent eu luctus tortor, in posuere ligula. Integer in justo sed lectus rhoncus suscipit. 
+      Praesent eu luctus tortor, in posuere ligula. Integer in justo sed lectus rhoncus suscipit.
       
   - text: |
-      - item1
-      - item2
-      - item3
+      - vehicula
+      - scelerisque
+      - interdum
   - code:
       lang: python 
       input: |
@@ -25,6 +25,8 @@ body:
         print('hello world')
         for i in range(10):
           print(i)
+  - text: |
+      ## Integer in justo sed lectus rhoncus suscipit.
   - code: 
       lang: go
       input: |
@@ -34,12 +36,11 @@ body:
         head = make(map[string]string)
         for i, v := range(10):
           head[i] = v
-  - text : |
+  - text: |
       ## Vestibulum
       Vivamus vestibulum tellus ut enim tristique fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; 
       Duis vitae odio non ipsum tincidunt auctor. Vestibulum commodo condimentum turpis sit amet ultricies. Vivamus a nunc sed nisi vehicula rutrum a 
       vel turpis. Sed malesuada magna eget justo lobortis, vel bibendum neque volutpat. Sed ullamcorper diam non tempus faucibus.
-
   - code: 
       lang: terraform
       input: |
