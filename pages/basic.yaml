@@ -1,0 +1,15 @@
+title: Basic usage
+description: A brief introduction into how to parse yaml etc
+body:
+  - text: | # Input text in markdown, have it rendered as HTML using github.com/gomarkdown/markdown pkg
+     ## A Subtitle title
+     YAML elements containing Markdown are converted to HTML and rendered 
+     in a simple webserver. 
+     Markdown is converted using: github.com/gomarkdown/markdown pkg       
+  - code: 
+      lang: python
+      input: |
+        # Add code-snippets through the 'code' Yaml element
+        print('hello world')
+        for i in range(10):
+        print(i)
