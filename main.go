@@ -8,7 +8,7 @@ import (
 	"os"
 
 	"github.com/GoogleCloudPlatform/functions-framework-go/funcframework"
-	yamlP "github.com/John-Holden/yamBlog/yamlParsers"
+	yamlP "github.com/John-Holden/yamBlog/parsers"
 	"github.com/gorilla/mux"
 )
 
@@ -97,15 +97,10 @@ func renderPost(w http.ResponseWriter, r *http.Request) {
 func startBlog(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("[i] Starting WebServer...")
 	router := mux.NewRouter()
-	//Home
 	router.HandleFunc("/", corsMiddleware(RenderPostList))
-	//Posts
 	router.HandleFunc("/post/{post}", corsMiddleware(renderPost))
-	//CSS assets
 	router.HandleFunc("/css/{css}", CSSMiddleware(ServeCSS))
-	//Static assets
 	router.PathPrefix(staticDir).Handler(http.StripPrefix(staticDir, http.FileServer(http.Dir("static"))))
-	//Set router
 	router.ServeHTTP(w, r)
 }
 

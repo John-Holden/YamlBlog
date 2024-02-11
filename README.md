@@ -51,12 +51,13 @@ Once you have set up the YamBlog application, you can use it to serve your blog 
 Each YAML file in the pages directory represents a blog page and should adhere to the following schema:
 
 ```Yaml
-title: MyTitle # Renders as a <h1> html & also embedded in <head>
-description: A brief introduction into how to parse yaml etc # embedded in <head>
+# Renders 'title' as a <h1> html & also embedded in <head>
+title: MyTitle
+# embedded in <head>
+description: A brief introduction into how to parse yaml etc
 body:
-  # Currently don't do anything with date !TODO!
+  # Currently don't do anything with date/author !TODO!
   - date: "2023-03-01"
-  # Currently don't do anything with author !TODO!
   - author: JohnHolden
   # Markdown input text rendered to HTML using github.com/gomarkdown/markdown pkg
   - text: | 
@@ -65,15 +66,8 @@ body:
       Lorem Lorem dolor sit amet, consectetur 
       adipiscing elit. Nullam 
       Pellentesque habitant morbi tristique senectus et netus et malesuada
-      fames ac turpis egestas.
-
-      ---
-      
+      fames ac turpis egestas.      
       Vivamus eget scelerisque nulla. Fusce ac leo vel enim luctus rhoncus.
-  - text: |
-      - Lorem
-      - Lorem
-      - dolor
   # Include code snippets following the below pattern:
   - code:
       lang: python
@@ -82,6 +76,10 @@ body:
         print('hello world')
         for i in range(10):
           print(i)
+  - text: |
+      - Lorem
+      - Lorem
+      - dolor
   - code:
       lang: go
       input: |
