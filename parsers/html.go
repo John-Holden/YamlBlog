@@ -1,4 +1,6 @@
-package yamlParser
+// Writes and forms HTML strings
+
+package Parsers
 
 import (
 	"fmt"
@@ -6,10 +8,10 @@ import (
 	"strings"
 )
 
-func GetPostListBodyHtml(post_dir string) string {
+func GetPostListBodyHtml(content_dir string) string {
 	var htmlString strings.Builder
 	htmlString.WriteString((markdownLink("🏚️ JohnHolden", "/")))
-	htmlString.WriteString(ListPosts(post_dir, ""))
+	htmlString.WriteString(ListPosts(content_dir, ""))
 	return GetBody(htmlString.String())
 }
 

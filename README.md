@@ -1,64 +1,65 @@
 # YamBlog - A Blog Application with YAML to HTML Conversion
 
-YamBlog is a simple blog application written in Go that allows you to create and serve blog pages from YAML files. Posts are stored in the `/pages` dir. Go converts each YAML element  to HTML for rendering. 
+YamBlog is a simple blog application written in Go that allows you to create and serve HTML pages from markdown contained in YAML files. HTML pages are stored in the `/pages` dir by default. Each YAML element is then converted into HTML. 
 
 This README will guide you through setting up and using the application.
 
 ## Features - WIP
-- Serve blog pages from YAML files
+- Serve super simple blog pages from YAML files
 - Convert Markdown content to HTML for rendering
 - Support for serving static assets like CSS files
 - CORS headers and content-type handling
-- Integration with Google Cloud Functions Framework
 
-## Installation
+## Module Usage
+- TODO
 
-1. Install the project and dependencies
+## Running Locally
+
+- Install the project and dependencies:
 ```Bash
-git clone https://github.com/John-Holden/yamBlog.git
-cd yamBlog
-# Install deps
+git clone https://github.com/John-Holden/YamlBlog.
+cd YamlBlog
 go mod tidy
-# Build the app
-go build
 ```
-2. Set up your blog content:
-    - Create a directory named pages where you'll store your YAML blog content files.
-    - Add YAML files in the pages directory. Each YAML file represents a blog page. You can structure your YAML files as shown in the provided examples.
-3. Set up static assets (CSS):
-    - Create a directory named static for your static assets, including CSS files.
-    - Place your CSS files in the static directory.
+- Run the webserver using the default config:
+```
+go run main.go
+```
+- List all HTML pages: `http://localhost:8080/`
+- Navigate to a page, e.g.: `http://localhost:8080/pages/basic`
+- Update `/pages` with new HTML pages according to the schema
+- The default paths can be updated by calling the `WebServer.SetBlogConf` method in main.go:
 
-## Usage
-
-Once you have set up the YamBlog application, you can use it to serve your blog content.
-
-1. Start the local web server:
-    ```Bash
-    cd yamBlog
-    go run main.go
-    ```
-    This will start the local web server on port 8080. You can customize the port by setting the PORT environment variable.
-2. Access your blog:
-    - To access the list of blog posts, open your web browser and go to:
-    http://localhost:8080
-    - To access individual blog posts, use the following URL pattern: 
-        http://localhost:8080/post/{post-name}.
-3. Customize your blog:
-    - You can customize your blog by modifying the content of the pages directory (YAML files) and the CSS files in the static directory.
+```GO
+func main() {
+	content_dir := "posts"
+	static_dir := "files"
+	css_dir := "css"
+	port := 80
+	WebServer.Start(
+		WebServer.SetBlogConf(
+			content_dir,
+			static_dir,
+			port,
+			css_dir,
+		),
+	)
+}
+```
 
 ## YAML Content Format
 Each YAML file in the pages directory represents a blog page and should adhere to the following schema:
 
 ```Yaml
 # Renders 'title' as a <h1> html & also embedded in <head>
-title: MyTitle
+title: MyTitle 
 # embedded in <head>
 description: A brief introduction into how to parse yaml etc
-body:
+body: # Rendered as <body>
   # Currently don't do anything with date/author !TODO!
   - date: "2023-03-01"
-  - author: JohnHolden
+  - author: JoeBlogs
+
   # Markdown input text rendered to HTML using github.com/gomarkdown/markdown pkg
   - text: | 
       ## This is a second sub-title
@@ -76,16 +77,6 @@ body:
         print('hello world')
         for i in range(10):
           print(i)
-  - text: |
-      - Lorem
-      - Lorem
-      - dolor
-  - code:
-      lang: go
-      input: |
-        // This is GO
-        fmt.Println("
-
 
 ```
 

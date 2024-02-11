@@ -1,4 +1,5 @@
-package yamlParser
+// Markdown processing
+package Parsers
 
 import (
 	"bytes"
