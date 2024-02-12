@@ -7,7 +7,7 @@ import (
 	"net/http"
 
 	"github.com/GoogleCloudPlatform/functions-framework-go/funcframework"
-	yamlP "github.com/John-Holden/YamlBlog/Parsers"
+	"github.com/John-Holden/YamlBlog/Parsers"
 	"github.com/gorilla/mux"
 )
 
@@ -79,10 +79,10 @@ func ServeCSS(w http.ResponseWriter, r *http.Request) {
 func RenderPost(w http.ResponseWriter, r *http.Request, contentDir string) {
 	fmt.Println("[i] Rendering Post: " + r.URL.Path)
 	html_doc := ""
-	links := yamlP.GetPostPaths(contentDir)
+	links := Parsers.GetPostPaths(contentDir)
 	for link, filename := range links {
 		if "/"+contentDir+"/"+link == r.URL.Path {
-			html_doc = yamlP.GetPostHtml(contentDir + "/" + filename)
+			html_doc = Parsers.GetPostHtml(contentDir + "/" + filename)
 			break
 		}
 	}
@@ -104,15 +104,15 @@ func RenderPostList(w http.ResponseWriter, r *http.Request, conf BlogConf) {
 	var js_paths []string
 	var css_paths = []string{conf.css + "/default.css"}
 
-	head := yamlP.GetHead(
+	head := Parsers.GetHead(
 		HeadTitle,
 		HeadDescription,
 		conf.static+"flavicon.ico",
 		css_paths,
 		js_paths)
 
-	body := yamlP.GetPostListBodyHtml(conf.content)
-	fmt.Fprintf(w, yamlP.GetPage(head, body))
+	body := Parsers.GetPostListBodyHtml(conf.content)
+	fmt.Fprintf(w, Parsers.GetPage(head, body))
 
 	if r.URL.Path != "/" {
 		http.Error(w, "404 not found.", http.StatusNotFound)
