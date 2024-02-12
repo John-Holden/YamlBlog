@@ -9,6 +9,7 @@ func main() {
 	static_dir := "files"
 	css_dir := "css"
 	port := 80
+	
 	WebServer.Start(
 		WebServer.SetBlogConf(
 			content_dir,
