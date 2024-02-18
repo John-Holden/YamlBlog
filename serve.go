@@ -1,12 +1,10 @@
-package WebServer
+package main
 
 import (
 	"fmt"
 	"io/ioutil"
-	"log"
 	"net/http"
 
-	"github.com/GoogleCloudPlatform/functions-framework-go/funcframework"
 	"github.com/John-Holden/YamlBlog/Parsers"
 	"github.com/gorilla/mux"
 )
@@ -144,21 +142,4 @@ func SetRoutes(w http.ResponseWriter, r *http.Request, conf BlogConf) {
 		),
 	)
 	router.ServeHTTP(w, r)
-}
-
-func Start(config *BlogConf) {
-	fmt.Println("[i] Starting Local WebServer...")
-	if config == nil {
-		config = DefaultConf()
-	}
-
-	setRoutesWithConfig := func(w http.ResponseWriter, r *http.Request) {
-		SetRoutes(w, r, *config)
-	}
-
-	funcframework.RegisterHTTPFunction("/", setRoutesWithConfig)
-
-	if err := funcframework.Start(config.port); err != nil {
-		log.Fatalf("funcframework.Start: %v\n", err)
-	}
 }
